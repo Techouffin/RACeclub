@@ -99,6 +99,8 @@ h1,h2,h3,h4{line-height:1.15}
 .btn-ghost:hover{background:#fff;color:var(--cranberry-dark);border-color:#fff}
 .btn-outline{background:transparent;border:2px solid var(--cranberry);color:var(--cranberry)}
 .btn-outline:hover{background:var(--cranberry);color:#fff}
+.btn-attend{background:#FFD400;color:#000;font-weight:800;border:2px solid #000;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+.btn-attend:hover{background:#ffdd33;color:#000}
 .btn-sm{padding:9px 20px;font-size:.85rem}
 
 /* ---------- Header ---------- */
@@ -276,6 +278,11 @@ h1,h2,h3,h4{line-height:1.15}
 .tl-item .date{display:inline-block;font-weight:700;color:var(--cranberry);background:var(--mist);padding:4px 14px;border-radius:var(--r-pill);font-size:.85rem;margin-bottom:8px}
 .tl-item h4{font-size:1.15rem;color:var(--gray-900);margin-bottom:6px}
 .tl-item p{color:var(--gray-600);font-size:.98rem}
+
+/* ---------- Partners ---------- */
+.partners-wrap{max-width:1050px;margin:0 auto;padding:34px 30px;background:#fff;border:1px solid var(--mist);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);display:grid;place-items:center}
+.partners-wrap img{width:100%;height:auto;display:block}
+@media(max-width:640px){.partners-wrap{padding:20px 16px}}
 
 /* ---------- President ---------- */
 .pres-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center;max-width:1000px;margin:0 auto}
@@ -563,7 +570,7 @@ h1,h2,h3,h4{line-height:1.15}
       <div class="hero-stats">
         <div class="stat"><b>25+</b><span>Active Members</span></div>
         <div class="stat"><b>2024</b><span>Chartered</span></div>
-        <div class="stat"><b>7</b><span>Board Directors</span></div>
+        <div class="stat"><b>12</b><span>Board Directors</span></div>
         <div class="stat"><b>∞</b><span>Impact Made</span></div>
       </div>
     </div>
@@ -715,7 +722,7 @@ h1,h2,h3,h4{line-height:1.15}
     </div>
     <div class="pres-grid">
       <div class="pres-photo reveal">
-        <div class="pres-avatar"><img data-drive="1rKKhdnVZSylzyts0KZyxDhfYDiWOifWJ" data-initials="TA" alt="TAIYE Abdulrasheed, Club President" /></div>
+        <div class="pres-avatar"><img data-local="assets/president.jpeg" data-drive="1rKKhdnVZSylzyts0KZyxDhfYDiWOifWJ" data-initials="TA" alt="TAIYE Abdulrasheed, Club President" /></div>
         <div class="pres-badge">TAIYE Abdulrasheed · President</div>
       </div>
       <div class="quote-card reveal d2">
@@ -763,7 +770,7 @@ h1,h2,h3,h4{line-height:1.15}
         <h3>Join Our Next Meeting</h3>
         <p>All are welcome. Bring your ideas, your energy, and your heart for service.</p>
         <a href="https://meet.google.com/vwq-ywoj-rjb" target="_blank" rel="noopener" class="btn btn-gold"><i class="fas fa-video"></i> Join on Google Meet</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9G3ZHou_8iVS9jh6Q45zY0J2pC7_AJQZmMnGj-j68ELQkkQ/viewform" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:12px"><i class="fas fa-clipboard-check"></i> Mark Attendance</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9G3ZHou_8iVS9jh6Q45zY0J2pC7_AJQZmMnGj-j68ELQkkQ/viewform" target="_blank" rel="noopener" class="btn btn-attend" style="margin-top:12px"><i class="fas fa-clipboard-check"></i> Mark Attendance</a>
       </div>
     </div>
   </div>
@@ -867,6 +874,20 @@ h1,h2,h3,h4{line-height:1.15}
       <p>Ready to serve, lead, and grow with us? Message us on WhatsApp and we'll get you started on your Rotaract journey.</p>
       <a href="https://wa.me/2348148781775?text=Hello!%20I%20want%20to%20join%20the%20Rotaract%20E-Club%20of%20Harmony." target="_blank" rel="noopener" class="btn-wa"><i class="fab fa-whatsapp" style="font-size:1.4rem"></i> Join via WhatsApp</a>
       <p class="phone"><i class="fas fa-phone"></i> Or call: +234 814 878 1775</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARTNERS ================= -->
+<section class="section bg-white anchor" id="partners">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow"><i class="fas fa-handshake"></i> Our Partners</span>
+      <h2 class="stitle">In <em>Partnership</em> With</h2>
+      <p class="ssub">Proudly collaborating with fellow Rotaract and Rotary clubs across the world to expand our impact.</p>
+    </div>
+    <div class="partners-wrap reveal">
+      <img src="assets/Our Partners.jpeg" alt="Our partners: Rotaract District 9126, Rotary Club of Ilorin New Dawn, Rotaract E-Club of Kampala North, and Rotaract Club of Accra-Cantonments East" />
     </div>
   </div>
 </section>
@@ -1033,7 +1054,7 @@ var CLOUD=false, db=null, auth=null;
 
 /* ============ BOARD DATA (from club records) ============ */
 var BOARD=[
-  {name:"TAIYE Abdulrasheed",role:"Club President",drive:"1rKKhdnVZSylzyts0KZyxDhfYDiWOifWJ",pres:true},
+  {name:"TAIYE Abdulrasheed",role:"Club President",drive:"1rKKhdnVZSylzyts0KZyxDhfYDiWOifWJ",local:"assets/president.jpeg",pres:true},
   {name:"Yetunde Sabtee Tijani",role:"Vice President",drive:"1DreeAiKHfRY7Zmn9y1NLY1nmBkKOP4Ja"},
   {name:"Samiat Oluwapelumi Oshoko",role:"Immediate Past President / Membership Chair",drive:"1CEuGcohZbaFPBmCQgowVZicJAXUD4FaC"},
   {name:"Hussain Abdulhakeem Ayokunnu PHF",role:"The Rotary Foundation Chair",drive:"1_pbMAmHzqMusQ53yxXtizJouN4-JdXik"},
@@ -1052,15 +1073,26 @@ function esc(t){var d=document.createElement("div");d.textContent=t==null?"":t;r
 function initials(name){return name.trim().split(/\s+/).filter(function(w){return /[A-Za-z]/.test(w);}).slice(0,2).map(function(w){return w[0].toUpperCase();}).join("");}
 function driveThumb(id){return "https://drive.google.com/thumbnail?id="+id+"&sz=w400";}
 
-/* Attach a Drive image with graceful fallback to monogram */
+/* Attach an image with graceful fallback: local file → Drive → monogram */
 function loadDriveImg(imgEl,driveId,name){
   var mono=initials(name||imgEl.getAttribute("data-initials")||"?");
-  if(!driveId){imgEl.parentNode.setAttribute("data-mono",mono);return;}
+  imgEl.parentNode.setAttribute("data-mono",mono);
+  var local=imgEl.getAttribute("data-local");
+  if(local){
+    imgEl.style.display="none";
+    var lp=new Image();
+    lp.onload=function(){imgEl.src=local;imgEl.style.display="block";};
+    lp.onerror=function(){loadDriveImgFallback(imgEl,driveId);};
+    lp.src=local;
+    return;
+  }
+  loadDriveImgFallback(imgEl,driveId);
+}
+function loadDriveImgFallback(imgEl,driveId){
+  if(!driveId){imgEl.remove();return;}
   var probe=new Image();
   probe.onload=function(){imgEl.src=driveThumb(driveId);imgEl.style.display="block";};
   probe.onerror=function(){imgEl.remove();};
-  // set placeholder monogram on the container first
-  imgEl.parentNode.setAttribute("data-mono",mono);
   imgEl.style.display="none";
   probe.src=driveThumb(driveId);
 }
@@ -1074,7 +1106,7 @@ function renderBoard(){
     return '<div class="board-card reveal '+d+' '+(m.pres?"pres-card":"")+'">'
       +'<div class="cap"></div>'
       +'<div class="avatar" data-mono="'+mono+'">'
-      +'<img data-drive="'+m.drive+'" alt="'+esc(m.name)+'" /></div>'
+      +'<img data-local="'+(m.local||"")+'" data-drive="'+m.drive+'" alt="'+esc(m.name)+'" /></div>'
       +'<h4>'+esc(m.name)+'</h4>'
       +'<div class="role">'+esc(m.role)+'</div>'
       +'</div>';
