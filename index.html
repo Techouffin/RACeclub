@@ -381,6 +381,14 @@ h1,h2,h3,h4{line-height:1.15}
 .blog-meta{margin-top:14px;font-size:.8rem;color:var(--gray-500);display:flex;align-items:center;gap:8px}
 .blog-empty{text-align:center;padding:60px 20px;color:var(--gray-500)}
 .blog-empty i{font-size:2.6rem;color:var(--gray-300);margin-bottom:12px}
+.blog-card{cursor:pointer}
+.blog-more{margin-top:14px;font-size:.82rem;font-weight:700;color:var(--cranberry);display:inline-flex;align-items:center;gap:6px}
+.blog-more i{transition:transform .25s var(--ease)}
+.blog-card:hover .blog-more i{transform:translateX(4px)}
+.post-detail-img{width:100%;max-height:340px;object-fit:cover;border-radius:var(--r-md);margin-bottom:20px}
+.post-detail-meta{display:flex;flex-wrap:wrap;gap:16px;color:var(--gray-500);font-size:.85rem;margin-bottom:18px}
+.post-detail-meta .cat{color:var(--cranberry);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.post-detail-body{color:var(--gray-700);line-height:1.75;white-space:pre-wrap;word-wrap:break-word}
 
 /* ---------- Join CTA ---------- */
 .join{background:linear-gradient(135deg,#075E54,#128C7E);border-radius:var(--r-lg);padding:56px;text-align:center;color:#fff;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
@@ -755,6 +763,7 @@ h1,h2,h3,h4{line-height:1.15}
         <h3>Join Our Next Meeting</h3>
         <p>All are welcome. Bring your ideas, your energy, and your heart for service.</p>
         <a href="https://meet.google.com/vwq-ywoj-rjb" target="_blank" rel="noopener" class="btn btn-gold"><i class="fas fa-video"></i> Join on Google Meet</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9G3ZHou_8iVS9jh6Q45zY0J2pC7_AJQZmMnGj-j68ELQkkQ/viewform" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:12px"><i class="fas fa-clipboard-check"></i> Mark Attendance</a>
       </div>
     </div>
   </div>
@@ -957,6 +966,20 @@ h1,h2,h3,h4{line-height:1.15}
   </div>
 </div>
 
+<!-- ================= BLOG POST DETAIL MODAL ================= -->
+<div class="modal" id="postModal">
+  <div class="modal-box">
+    <button class="modal-close" id="postClose">&times;</button>
+    <div id="postDetailImgWrap"></div>
+    <h2 id="postDetailTitle"></h2>
+    <div class="post-detail-meta">
+      <span class="cat" id="postDetailCat"></span>
+      <span><i class="far fa-calendar"></i> <span id="postDetailDate"></span></span>
+    </div>
+    <div class="post-detail-body" id="postDetailBody"></div>
+  </div>
+</div>
+
 <div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toastMsg"></span></div>
 
 <!-- Firebase SDK (compat build — real-time blog + secure admin auth) -->
@@ -1015,10 +1038,10 @@ var BOARD=[
   {name:"Samiat Oluwapelumi Oshoko",role:"Immediate Past President / Membership Chair",drive:"1CEuGcohZbaFPBmCQgowVZicJAXUD4FaC"},
   {name:"Hussain Abdulhakeem Ayokunnu PHF",role:"The Rotary Foundation Chair",drive:"1_pbMAmHzqMusQ53yxXtizJouN4-JdXik"},
   {name:"Adebimpe Mujeeb Adegoke",role:"Project Service Chair",drive:"1WM0l8htIYHy5B9VLVUqdwwEAFgpyqjax"},
-  {name:"YUSUF Mahfooz Adewale",role:"Club Learning Facilitator",drive:"1tHCwIKrXI99cqML8OBx3sRN9Xc8UXmdm"},
+  {name:"YUSUF Mahfooz Adewale PHF",role:"Club Learning Facilitator",drive:"1tHCwIKrXI99cqML8OBx3sRN9Xc8UXmdm"},
   {name:"Oluwatimilehin Ayodeji Rotimi",role:"Club Secretary",drive:"1jX1yCNhDIaV_PoSTDZiNwXYkm-LJKlFQ"},
   {name:"Isreal Jesutofunmi Adewoye",role:"Assistant Club Secretary",drive:"11qpaIZ_U1ARwvb0Ziqj3saC1ko3uk105"},
-  {name:"Bukoye Hannah Olajumoke",role:"Treasurer",drive:"1rOkrhdbW1jI-d0yNEfyIL1rfCoJhrgkT"},
+  {name:"Bukoye Hannah Olajumoke PHF",role:"Treasurer",drive:"1rOkrhdbW1jI-d0yNEfyIL1rfCoJhrgkT"},
   {name:"Raji Olalekan",role:"Club Service Chair",drive:"1H3q0mNNPsrtSYm13eyNJcGWTDFPCx8XT"},
   {name:"Illiyaz Alabi Adekanbi",role:"Public Image Chair",drive:"1nxf8hX4W2O3Dsrc6fl2YGvtJbD3RUwPT"},
   {name:"Akanbi Abdulmutakeem",role:"Sergeant at Arms",drive:"18UkGl1bcFZLooU-KfVay7ssvr6pJygvP"}
@@ -1125,13 +1148,32 @@ function renderBlog(){
   grid.innerHTML=sorted.map(function(p){
     var img=p.image?'<img src="'+esc(p.image)+'" alt="'+esc(p.title)+'" onerror="this.style.display=\'none\'" />':'<div style="position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:2.4rem"><i class="fas fa-feather-pointed"></i></div>';
     var body=esc(p.content).slice(0,130);
-    return '<div class="blog-card reveal">'
+    return '<div class="blog-card reveal" data-id="'+esc(String(p.id))+'" role="button" tabindex="0">'
       +'<div class="blog-img"><span class="cat">'+esc(p.category||"News")+'</span>'+img+'</div>'
       +'<div class="blog-body"><h3>'+esc(p.title)+'</h3><p>'+body+(p.content.length>130?"…":"")+'</p>'
-      +'<div class="blog-meta"><i class="far fa-calendar"></i> '+esc(p.date||"")+'</div></div></div>';
+      +'<div class="blog-meta"><i class="far fa-calendar"></i> '+esc(p.date||"")+'</div>'
+      +'<span class="blog-more">Read more <i class="fas fa-arrow-right"></i></span></div></div>';
   }).join("");
+  grid.querySelectorAll(".blog-card").forEach(function(card){
+    var open=function(){openPost(card.getAttribute("data-id"));};
+    card.addEventListener("click",open);
+    card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open();}});
+  });
   observeReveals();
 }
+
+function openPost(id){
+  var p=posts.find(function(x){return String(x.id)===String(id);});
+  if(!p)return;
+  $("postDetailImgWrap").innerHTML=p.image?'<img class="post-detail-img" src="'+esc(p.image)+'" alt="'+esc(p.title)+'" onerror="this.style.display=\'none\'" />':"";
+  $("postDetailTitle").textContent=p.title||"";
+  $("postDetailCat").textContent=p.category||"News";
+  $("postDetailDate").textContent=p.date||"";
+  $("postDetailBody").textContent=p.content||"";
+  $("postModal").querySelector(".modal-box").scrollTop=0;
+  $("postModal").classList.add("open");
+}
+function closePost(){$("postModal").classList.remove("open");}
 
 /* ============ PROJECT OF THE MONTH ============ */
 function applyPotm(d){
@@ -1236,6 +1278,8 @@ document.addEventListener("DOMContentLoaded",function(){
   /* admin login — now uses Firebase Auth when cloud is active */
   $("adminClose").onclick=closeAdmin;
   $("adminModal").addEventListener("click",function(e){if(e.target===this)closeAdmin();});
+  $("postClose").onclick=closePost;
+  $("postModal").addEventListener("click",function(e){if(e.target===this)closePost();});
   document.addEventListener("keydown",function(e){
     if(e.key==="Escape"&&$("adminModal").classList.contains("open"))closeAdmin();
     if((e.ctrlKey||e.metaKey)&&e.shiftKey&&(e.key==="A"||e.key==="a")){e.preventDefault();openAdmin();}
