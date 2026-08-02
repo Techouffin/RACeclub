@@ -284,6 +284,20 @@ h1,h2,h3,h4{line-height:1.15}
 .partners-wrap img{width:100%;height:auto;display:block}
 @media(max-width:640px){.partners-wrap{padding:20px 16px}}
 
+/* ---------- Past Leaders ---------- */
+.leaders-wrap{max-width:1050px;margin:0 auto;padding:30px;background:#fff;border:1px solid var(--mist);border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
+.leaders-wrap img{width:100%;height:auto;display:block;border-radius:var(--r)}
+@media(max-width:640px){.leaders-wrap{padding:16px}}
+
+/* ---------- Success Story ---------- */
+.success-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:1120px;margin:0 auto}
+.success-card{background:#fff;border:1px solid var(--mist);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.success-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.success-card .yr{display:flex;align-items:center;gap:10px;padding:14px 22px;font-weight:800;font-size:1.02rem;color:#fff;background:var(--grad-brand);letter-spacing:.3px}
+.success-card .yr i{opacity:.92}
+.success-card img{width:100%;height:auto;display:block}
+@media(max-width:820px){.success-grid{grid-template-columns:1fr}}
+
 /* ---------- President ---------- */
 .pres-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center;max-width:1000px;margin:0 auto}
 .pres-photo{position:relative}
@@ -364,6 +378,18 @@ h1,h2,h3,h4{line-height:1.15}
 .potm h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.3rem);position:relative;z-index:1}
 .potm p{color:rgba(255,255,255,.9);max-width:640px;margin:14px 0 18px;font-size:1.06rem;position:relative;z-index:1}
 .potm .date{font-size:.85rem;opacity:.8;position:relative;z-index:1}
+
+/* ---------- Rotaractor of the Month ---------- */
+.rotm-card{max-width:940px;margin:0 auto;background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);overflow:hidden;display:grid;grid-template-columns:300px 1fr}
+.rotm-photo{position:relative;background:var(--grad-brand);min-height:340px}
+.rotm-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.rotm-photo[data-mono]::before{content:attr(data-mono);position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-family:'Playfair Display',serif;font-weight:800;font-size:4.5rem}
+.rotm-info{padding:40px 44px;display:flex;flex-direction:column;justify-content:center}
+.rotm-info .tag{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#3a2c00;font-weight:800;font-size:.74rem;text-transform:uppercase;letter-spacing:2px;padding:6px 16px;border-radius:var(--r-pill);margin-bottom:16px;align-self:flex-start}
+.rotm-info h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.6vw,2.1rem);color:var(--gray-900);line-height:1.15}
+.rotm-info p{color:var(--gray-700);margin:14px 0 16px;font-size:1.02rem;line-height:1.7}
+.rotm-info .date{font-size:.82rem;color:var(--gray-500)}
+@media(max-width:720px){.rotm-card{grid-template-columns:1fr}.rotm-photo{min-height:300px}.rotm-info{padding:30px 26px}}
 
 /* ---------- Collaboration ---------- */
 .collab{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
@@ -543,10 +569,13 @@ h1,h2,h3,h4{line-height:1.15}
         <div class="nav-dropdown-content">
           <a href="#president"><i class="fas fa-quote-left"></i> President's Message</a>
           <a href="#board"><i class="fas fa-users-gear"></i> Board of Directors</a>
+          <a href="#past-leaders"><i class="fas fa-crown"></i> Past Leaders</a>
         </div>
       </div>
       <a href="#meetings">Meetings</a>
       <a href="#projects">Projects</a>
+      <a href="#rotaractor">Spotlight</a>
+      <a href="#success">Impact</a>
       <a href="#blog">Blog</a>
       <a href="#donate">Donate</a>
       <a href="#join" class="btn-nav">Join Us</a>
@@ -748,6 +777,63 @@ h1,h2,h3,h4{line-height:1.15}
       <p class="ssub">Meet the dedicated leaders steering the Rotaract E-Club of Harmony for the 2026/2027 Rotary year.</p>
     </div>
     <div class="board-grid" id="boardGrid"><!-- injected by JS --></div>
+  </div>
+</section>
+
+<!-- ================= PAST LEADERS ================= -->
+<section class="section bg-white anchor" id="past-leaders">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow"><i class="fas fa-crown"></i> Our Legacy</span>
+      <h2 class="stitle">Past <em>Leaders</em></h2>
+      <p class="ssub">Honouring the presidents whose vision and service shaped the Rotaract E-Club of Harmony.</p>
+    </div>
+    <div class="leaders-wrap reveal">
+      <img src="assets/Our past leader.jpeg" alt="Past Leaders: Rtr. Adedotun Kabirat Balogun PHF, President 2024–2025; and Rtr. Samiat Oluwapelumi Oshoko, President 2025–2026" />
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROTARACTOR OF THE MONTH ================= -->
+<section class="section bg-brand anchor" id="rotaractor">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow"><i class="fas fa-medal"></i> Member Spotlight</span>
+      <h2 class="stitle">Rotaractor of the <em>Month</em></h2>
+      <p class="ssub">Celebrating a member whose service, energy, and dedication embody the spirit of Rotaract.</p>
+    </div>
+    <div class="rotm-card reveal" id="rotmCard">
+      <div class="rotm-photo" id="rotmPhoto" data-mono="R">
+        <img id="rotmImg" alt="Rotaractor of the Month" style="display:none" />
+      </div>
+      <div class="rotm-info">
+        <span class="tag"><i class="fas fa-medal"></i> Rotaractor of the Month</span>
+        <h2 id="rotmName">Coming Soon</h2>
+        <p id="rotmNote">Each month we honour a member who goes above and beyond in Fellowship Through Service. Our next honouree will be announced here soon.</p>
+        <div class="date" id="rotmDate"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUCCESS STORY ================= -->
+<section class="section bg-mist anchor" id="success">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow"><i class="fas fa-chart-line"></i> Our Impact</span>
+      <h2 class="stitle">Our Success <em>Story</em></h2>
+      <p class="ssub">Real numbers, real impact — a look back at what we've achieved together, year after year.</p>
+    </div>
+    <div class="success-grid">
+      <div class="success-card reveal">
+        <div class="yr"><i class="fas fa-award"></i> 2024 / 2025 Scorecard</div>
+        <img src="assets/Our Success story 1.jpeg" alt="2024/2025 scorecard: 16 projects executed, 221 man-hours volunteered, ₦2,009,600 spent on projects, $103 donated to the Rotary Foundation" />
+      </div>
+      <div class="success-card reveal d2">
+        <div class="yr"><i class="fas fa-award"></i> 2025 / 2026 Scorecard</div>
+        <img src="assets/Our success story 2.jpeg" alt="2025/2026 scorecard: 13 projects executed, 178 man-hours volunteered, ₦1,059,600 spent on projects, $110 donated to the Rotary Foundation" />
+      </div>
+    </div>
   </div>
 </section>
 
@@ -965,6 +1051,16 @@ h1,h2,h3,h4{line-height:1.15}
         <button class="btn btn-sm" id="pmSave" style="margin-top:14px"><i class="fas fa-save"></i> Update Project</button>
       </div>
       <div class="admin-panel-box">
+        <h4><i class="fas fa-medal" style="color:var(--gold)"></i> Rotaractor of the Month</h4>
+        <label>Name</label>
+        <input type="text" id="rmName" placeholder="Member's name" />
+        <label>Image URL (link to photo)</label>
+        <input type="text" id="rmImg" placeholder="https://… (paste image link)" />
+        <label>Short note (optional)</label>
+        <textarea id="rmNote" placeholder="Why they're being celebrated…"></textarea>
+        <button class="btn btn-sm" id="rmSave" style="margin-top:14px"><i class="fas fa-save"></i> Update Rotaractor</button>
+      </div>
+      <div class="admin-panel-box">
         <h4><i class="fas fa-pen-nib" style="color:var(--cranberry)"></i> <span id="postFormTitle">Add New Blog Post</span></h4>
         <label>Title</label>
         <input type="text" id="bTitle" placeholder="Post title" />
@@ -1013,7 +1109,7 @@ h1,h2,h3,h4{line-height:1.15}
 "use strict";
 /* ============ CONFIG ============ */
 var ADMIN_PASSWORD="harmony2024";
-var KEY_BLOG="reh_blog_v2", KEY_POTM="reh_potm_v2";
+var KEY_BLOG="reh_blog_v2", KEY_POTM="reh_potm_v2", KEY_ROTM="reh_rotm_v1";
 
 /* ============ FIREBASE (real-time cloud) ============
    HOW TO GO LIVE (one-time, ~5 min):
@@ -1235,11 +1331,46 @@ function savePotm(t,de,cb){
   }
 }
 
+/* ============ ROTARACTOR OF THE MONTH ============ */
+function applyRotm(d){
+  if(!d||!d.name)return;
+  $("rotmName").textContent=d.name;
+  $("rotmNote").textContent=d.note||"";
+  $("rotmDate").textContent=d.date?("Honoured: "+d.date):"";
+  var photo=$("rotmPhoto"),img=$("rotmImg");
+  if(d.image){
+    img.onerror=function(){img.style.display="none";photo.setAttribute("data-mono",initials(d.name)||"R");};
+    img.onload=function(){img.style.display="block";photo.removeAttribute("data-mono");};
+    img.src=d.image;
+  }else{
+    img.style.display="none";img.removeAttribute("src");photo.setAttribute("data-mono",initials(d.name)||"R");
+  }
+  if($("rmName")){$("rmName").value=d.name;$("rmImg").value=d.image||"";$("rmNote").value=d.note||"";}
+}
+function startRotmSync(){
+  if(CLOUD){
+    db.collection("meta").doc("rotm").onSnapshot(function(doc){
+      if(doc.exists)applyRotm(doc.data());
+    },function(e){console.warn("ROTM sync error:",e);});
+  }else{
+    var d=null;try{d=JSON.parse(localStorage.getItem(KEY_ROTM));}catch(e){}
+    if(d&&d.name)applyRotm(d);
+  }
+}
+function saveRotm(name,img,note,cb){
+  var d={name:name,image:img,note:note,date:new Date().toISOString().slice(0,10)};
+  if(CLOUD){
+    db.collection("meta").doc("rotm").set(d).then(function(){cb&&cb(true);}).catch(function(e){console.warn(e);toast("Save failed — are you logged in?");cb&&cb(false);});
+  }else{
+    localStorage.setItem(KEY_ROTM,JSON.stringify(d));applyRotm(d);cb&&cb(true);
+  }
+}
+
 /* ============ ADMIN ============ */
 var isAdmin=false,editId=null;
 function openAdmin(){$("adminModal").classList.add("open");if(isAdmin){showDash();}else{$("loginView").style.display="block";$("dashView").style.display="none";$("adminPass").value="";if(CLOUD&&$("adminEmail")){$("adminEmail").style.display="block";$("adminEmail").placeholder="Admin email";}}}
 function closeAdmin(){$("adminModal").classList.remove("open");}
-function showDash(){$("loginView").style.display="none";$("dashView").style.display="block";renderAdminList();startPotmSync();}
+function showDash(){$("loginView").style.display="none";$("dashView").style.display="block";renderAdminList();startPotmSync();startRotmSync();}
 function renderAdminList(){
   var host=$("adminItems");
   if(!posts.length){host.innerHTML='<p style="color:var(--gray-500)">No posts yet.</p>';return;}
@@ -1264,7 +1395,7 @@ function observeReveals(){
 /* ============ INIT ============ */
 document.addEventListener("DOMContentLoaded",function(){
   $("year").textContent=new Date().getFullYear();
-  renderBoard();initPresidentPhoto();startBlogSync();startPotmSync();observeReveals();
+  renderBoard();initPresidentPhoto();startBlogSync();startPotmSync();startRotmSync();observeReveals();
 
   /* nav */
   var header=$("header"),nav=$("nav"),toggle=$("navToggle");
@@ -1345,6 +1476,11 @@ document.addEventListener("DOMContentLoaded",function(){
     var t=$("pmTitle").value.trim(),d=$("pmDesc").value.trim();
     if(!t||!d){toast("Fill both fields");return;}
     savePotm(t,d,function(ok){if(ok)toast("Project of the Month updated");});
+  };
+  $("rmSave").onclick=function(){
+    var n=$("rmName").value.trim(),img=$("rmImg").value.trim(),note=$("rmNote").value.trim();
+    if(!n){toast("Enter the member's name");return;}
+    saveRotm(n,img,note,function(ok){if(ok)toast("Rotaractor of the Month updated");});
   };
   $("bSubmit").onclick=function(){
     var t=$("bTitle").value.trim(),c=$("bContent").value.trim(),cat=$("bCat").value,img=$("bImg").value.trim();
